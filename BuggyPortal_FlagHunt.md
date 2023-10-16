@@ -7,8 +7,7 @@ Embark on a journey through the Buggy Portal to discover its concealed treasure.
 
 ![Alt text](buggy.png)
 
-First look at the website , we found a login page . So the challenge maybe done by SqlInjection. But it doesn't seems to be work. 
-So have a look at the source code in JS part.
+Initially, upon visiting the website, we encountered a login page. Our suspicion was that the challenge might involve SQL injection. However, it appears that this method doesn't work. Therefore, let's examine the JavaScript part of the source code for further clues.
 
 ```javascript
 function validateLogin() {
@@ -67,10 +66,9 @@ function validateLogin() {
             xhr.send(data);
         }
 ```
-By analyzind the code we dound that the username is the reverse of **"ypjnimdarepus"**. So username is : **superadminjpy**
-For password, it matches a text when it get obfuscated it's equal to the string **tvqfsbenjoqx**. So we need to deobfuscate the text.
-Generate a python code to deobfuscate the text,you may done it by ChatGPT
+Upon analyzing the code, we discovered that the username is the reverse of **ypjnimdarepus** which gives us the username **superadminjpy** As for the password, it appears to be an obfuscated string, "tvqfsbenjoqx." We need to deobfuscate this text.
 
+Please generate Python code to deobfuscate the text, and you can accomplish this with the assistance of ChatGPT.
 ```python
 def deobfuscate_password(obfuscated_password):
     original_password = ""
@@ -85,10 +83,10 @@ print("Deobfuscated Password:", original_password)
 ```
 Output: ```Deobfuscated Password: superadminpw```
 
-Now login, and go through this paage **"/flagggsxyhzb.php"** listed on JS code above. 
-Hoorray , found the flag.
+"Proceed to log in and access the page **"/flagggsxyhzb.php"** as indicated in the JavaScript code above. Excitingly, we've located the flag!
+
 ##Flag
-The flag for this challenge was: 
+
 
 ```ruby
 CTF_BD{cl13nt_5id3_c0d3_r3v13w_15_h1dd3n_tr34sur3}
